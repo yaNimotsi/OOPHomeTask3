@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPHomeTask3", "OOPHomeTask3\OOPHomeTask3.csproj", "{5C6BC053-97AD-4937-8904-A0EBD9EED494}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPHomeTask3.1", "OOPHomeTask3\OOPHomeTask3.1.csproj", "{5C6BC053-97AD-4937-8904-A0EBD9EED494}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -60,7 +60,7 @@ namespace OOPHomeTask3
         /// Reduce the balance on value
         /// </summary>
         /// <param name="valToReduce"> Value to reduce</param>
-        public void ReduceBalance(double valToReduce)
+        public bool ReduceBalance(double valToReduce)
         {
             if (valToReduce <= Balance)
             {
@@ -69,12 +69,31 @@ namespace OOPHomeTask3
                 Console.WriteLine($"Balance is reduce on value {valToReduce}");
 
                 GetAccountInformation();
+                
+                return true;
             }
             else
             {
                 Console.WriteLine();
                 Console.WriteLine($"Balance is less the your value");
                 Console.WriteLine($"Balance is {Balance}, value to reduce is {valToReduce}");
+                
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="accountWithCash"></param>
+        /// <param name="valueToRemove"></param>
+        public void RemoveCashToAccount(BankAccount accountWithCash, double valueToRemove)
+        {
+            if (accountWithCash.ReduceBalance(valueToRemove))
+            {
+                this.Balance += valueToRemove;
+
+                GetAccountInformation();
             }
         }
     }

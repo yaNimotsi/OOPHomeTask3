@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace OOPHomeTask3
+﻿namespace OOPHomeTask3
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             var account1 = new BankAccount(100, TypeBankAccount.Deposit);
             var account2 = new BankAccount(100, TypeBankAccount.Deposit);

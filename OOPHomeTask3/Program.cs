@@ -1,12 +1,13 @@
-﻿using System;
-
-namespace OOPHomeTask3
+﻿namespace OOPHomeTask3
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            var account1 = new BankAccount(100, TypeBankAccount.Deposit);
+            var account2 = new BankAccount(100, TypeBankAccount.Deposit);
+
+            account2.RemoveCashToAccount(account1, 33.3);
         }
     }
 }

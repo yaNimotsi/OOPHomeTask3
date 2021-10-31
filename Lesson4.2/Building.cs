@@ -1,44 +1,51 @@
-﻿using Lesson4._2.Interfaces;
+﻿using System;
+using Lesson4._2.Interfaces;
 
 namespace Lesson4._2
 {
     internal class Building : IBuilding
     {
         private static int _buildingNumber;
-        private double _buildingHeight;
-        private int _numberOfFloor;
-        private int _numberApartments;
-        private int _numberEntrances;
 
-        public double BuildingHeight
-        {
-            get => _buildingHeight;
-            set => _buildingHeight = value;
-        }
 
-        public int NumberOfFloor
-        {
-            get => _numberOfFloor;
-            set => _numberOfFloor = value;
-        }
+        public int BuildingNumber => _buildingNumber;
+        
+        public double BuildingHeight { get; set; }
 
-        public int NumberApartments
-        {
-            get => _numberApartments;
-            set => _numberApartments = value;
-        }
+        public int NumberOfFloor { get; set; }
 
-        public int NumberEntrances
-        {
-            get => _numberEntrances;
-            set => _numberEntrances = value;
-        }
+        public int NumberApartments { get; set; }
 
-        public static int BuildingNumber => _buildingNumber;
+        public int NumberEntrances { get; set; }
 
-        public Building()
+        private Building()
         {
             GenerateBuildingNumber();
+        }
+
+        public Building(double buildingHeight, int numberOfFloor, int numberApartments, int numberEntrances) : this()
+        {
+            if (buildingHeight <= 0)
+            {
+                throw new ArgumentException("Высота должна быть больше нуля!");
+            }
+            if (numberOfFloor <= 0)
+            {
+                throw new ArgumentException("Количество этажей должно быть больше нуля!");
+            }
+            if (numberApartments <= 0)
+            {
+                throw new ArgumentException("Количество квартир должно быть больше нуля!");
+            }
+            if (numberEntrances <= 0)
+            {
+                throw new ArgumentException("Количество подьездов должно быть больше нуля!");
+            }
+
+            BuildingHeight = buildingHeight;
+            NumberOfFloor = numberOfFloor;
+            NumberApartments = numberApartments;
+            NumberEntrances = numberEntrances;
         }
 
         private void GenerateBuildingNumber()
@@ -46,23 +53,19 @@ namespace Lesson4._2
             _buildingNumber++;
         }
 
-
-        int IBuilding.BuildingNumber => _buildingNumber;
-
         /// <summary>
         /// Return the height of the floor
         /// </summary>
         /// <returns></returns>
         public double GetHeightFloor()
         {
-            if (_buildingHeight > 0 && _numberOfFloor > 0)
+            if (BuildingHeight > 0 && NumberOfFloor > 0)
             {
-                return _buildingHeight / _numberOfFloor;
+                return BuildingHeight / NumberOfFloor;
             }
-            else
-            {
-                return 0;
-            }
+            
+            return 0;
+            
         }
 
         /// <summary>
@@ -71,14 +74,12 @@ namespace Lesson4._2
         /// <returns></returns>
         public int GetCountApartmentInEntrance()
         {
-            if (_numberApartments > 0 && _numberEntrances > 0)
+            if (NumberApartments > 0 && NumberEntrances > 0)
             {
-                return _numberApartments / _numberEntrances;
+                return NumberApartments / NumberEntrances;
             }
-            else
-            {
-                return 0;
-            }
+                
+            return 0;
         }
 
         /// <summary>
@@ -91,7 +92,7 @@ namespace Lesson4._2
 
             if (apartmentInEntrance > 0)
             {
-                return apartmentInEntrance / _numberOfFloor;
+                return apartmentInEntrance / NumberOfFloor;
             }
 
             return 0;

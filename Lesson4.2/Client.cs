@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Lesson4._2.CreatorClasses;
-using Lesson4._2.TypesBuilding;
 
 namespace Lesson4._2
 {
@@ -11,12 +10,10 @@ namespace Lesson4._2
         public void Main()
         {
             Console.WriteLine("App: Launched with the ConcreteCreator1.");
-            ClientCode(new CreatorTypeBuild1());
+            ClientCode(new BuildingCreator());
 
             Console.WriteLine("");
-
-            Console.WriteLine("App: Launched with the ConcreteCreator2.");
-            ClientCode(new CreatorTypeBuild2());
+            
         }
 
         public void ClientCode(Creator creator)

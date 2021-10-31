@@ -1,7 +1,8 @@
 ﻿namespace Lesson4._2.Interfaces
 {
-    interface IBuilding
+    internal interface IBuilding
     {
+        int BuildingNumber { get; }
         public double GetHeightFloor();
         public int GetCountApartmentInEntrance();
         public int GetCountApartmentInFloor();

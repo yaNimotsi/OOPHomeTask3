@@ -2,7 +2,7 @@
 
 namespace Lesson4._2.CreatorClasses
 {
-    abstract class Creator
+    internal abstract class Creator
     {
 
         public abstract IBuilding CreateBuild();

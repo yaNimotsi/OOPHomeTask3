@@ -9,7 +9,7 @@ namespace Lesson4._2.CreatorClasses
 
         protected Creator()
         {
-            var building = CreateBuild();
+            
         }
 
         private static void AddBuildingToHashTable(IBuilding building)

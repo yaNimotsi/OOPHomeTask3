@@ -80,6 +80,28 @@ namespace Lesson4._2
 
             return 0;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (this.BuildingNumber == obj.BuildingNumber)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public override int GetHashCode()
+        {
+            var result = 0;
+            if (this.BuildingNumber != 0)
+            {
+                
+            }
+        }
     }
 }
 /*

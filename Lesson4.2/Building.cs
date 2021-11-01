@@ -1,5 +1,4 @@
-﻿using System;
-using Lesson4._2.Interfaces;
+﻿using Lesson4._2.Interfaces;
 
 namespace Lesson4._2
 {

@@ -1,12 +1,15 @@
 ﻿namespace Lesson4._1
 {
-    internal class Building
+    public class Building
     {
         private static int _buildingNumber;
         private double _buildingHeight;
         private int _numberOfFloor;
         private int _numberApartments;
         private int _numberEntrances;
+
+
+        public int BuildingNumber => _buildingNumber;
 
         public double BuildingHeight
         {
@@ -32,11 +35,17 @@
             set => _numberEntrances = value;
         }
 
-        public static int BuildingNumber => _buildingNumber;
-
-        public Building()
+        private Building()
         {
             GenerateBuildingNumber();
+        }
+
+        public Building(double buildingHeight, int numberOfFloor, int numberApartments, int numberEntrances) : this()
+        {
+            _buildingHeight = buildingHeight;
+            _numberOfFloor = numberOfFloor;
+            _numberApartments = numberApartments;
+            _numberEntrances = numberEntrances;
         }
 
         private void GenerateBuildingNumber()
@@ -45,41 +54,49 @@
         }
 
         /// <summary>
+        /// Overide method to print data about building
+        /// </summary>
+        /// <returns> Row with data: number building, builtin height, number floor, number apartments,
+        ///  number entrances.</returns>
+        public override string ToString()
+        {
+            return new string(
+                $"Building number is {_buildingNumber}, building height is {_buildingHeight}, number of floor is {_numberOfFloor}, " +
+                $"number appartaments is {_numberApartments}, number entrances is {_numberEntrances}");
+        }
+
+        /// <summary>
         /// Return the height of the floor
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Height of the floor</returns>
         public double GetHeightFloor()
         {
             if (_buildingHeight > 0 && _numberOfFloor > 0)
             {
                 return _buildingHeight / _numberOfFloor;
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         /// <summary>
         /// Return number apartments in entrance
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Number of appartments in the Entrance</returns>
         public int GetCountApartmentInEntrance()
         {
             if (_numberApartments > 0 && _numberEntrances > 0)
             {
                 return _numberApartments / _numberEntrances;
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         /// <summary>
         /// Rreturn count apartment in floor
         /// </summary>
-        /// <returns></returns>
+        /// <returns> Number of appartments on the floor</returns>
         public int GetCountApartmentInFloor()
         {
             var apartmentInEntrance = GetCountApartmentInEntrance();
@@ -91,6 +108,7 @@
 
             return 0;
         }
+
     }
 }
 /*

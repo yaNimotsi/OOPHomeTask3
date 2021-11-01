@@ -17,6 +17,6 @@ namespace Lesson4._2.CreatorClasses
             createdBuildingHashtable.Add(building.BuildingNumber, building);
         }
 
-        public abstract IBuilding CreateBuild();
+        public abstract  IBuilding CreateBuild(double buildingHeight, int numberOfFloor, int numberApartments, int numberEntrances);
     }
 }

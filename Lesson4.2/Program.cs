@@ -6,7 +6,9 @@ namespace Lesson4._2
     {
         static void Main(string[] args)
         {
-            new Client().Main();
+            var buildingCreator = new BuildingCreator();
+            var building = buildingCreator.CreateBuild(10, 1, 1, 1);
+
 
             Console.ReadLine();
         }

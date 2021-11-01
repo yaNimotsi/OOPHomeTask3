@@ -7,7 +7,6 @@ namespace Lesson4._2
     {
         private static int _buildingNumber;
 
-
         public int BuildingNumber => _buildingNumber;
         
         public double BuildingHeight { get; set; }
@@ -20,35 +19,20 @@ namespace Lesson4._2
 
         private Building()
         {
-            GenerateBuildingNumber();
+
         }
 
-        public Building(double buildingHeight, int numberOfFloor, int numberApartments, int numberEntrances) : this()
+        protected internal  Building(double buildingHeight, int numberOfFloor, int numberApartments, int numberEntrances)
         {
-            if (buildingHeight <= 0)
-            {
-                throw new ArgumentException("Высота должна быть больше нуля!");
-            }
-            if (numberOfFloor <= 0)
-            {
-                throw new ArgumentException("Количество этажей должно быть больше нуля!");
-            }
-            if (numberApartments <= 0)
-            {
-                throw new ArgumentException("Количество квартир должно быть больше нуля!");
-            }
-            if (numberEntrances <= 0)
-            {
-                throw new ArgumentException("Количество подьездов должно быть больше нуля!");
-            }
-
             BuildingHeight = buildingHeight;
             NumberOfFloor = numberOfFloor;
             NumberApartments = numberApartments;
             NumberEntrances = numberEntrances;
+            
+            GenerteBuildingNumber();
         }
 
-        private void GenerateBuildingNumber()
+        private void GenerteBuildingNumber()
         {
             _buildingNumber++;
         }
@@ -65,7 +49,6 @@ namespace Lesson4._2
             }
             
             return 0;
-            
         }
 
         /// <summary>
@@ -78,7 +61,7 @@ namespace Lesson4._2
             {
                 return NumberApartments / NumberEntrances;
             }
-                
+            
             return 0;
         }
 

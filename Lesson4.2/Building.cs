@@ -83,14 +83,19 @@ namespace Lesson4._2
 
         public override bool Equals(object obj)
         {
-            if (this.BuildingNumber == obj.BuildingNumber)
-            {
-                return true;
-            }
-            else
+            if (obj == null)
             {
                 return false;
             }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            Building build = (Building)obj;
+
+            return this.BuildingNumber == build.BuildingNumber;
         }
 
 
@@ -99,8 +104,26 @@ namespace Lesson4._2
             var result = 0;
             if (this.BuildingNumber != 0)
             {
-                
+                result +=BuildingNumber.GetHashCode();
             }
+            if (this.BuildingHeight != 0)
+            {
+                result += BuildingHeight.GetHashCode();
+            }
+            if (this.NumberOfFloor != 0)
+            {
+                result += NumberOfFloor.GetHashCode();
+            }
+            if (this.NumberApartments != 0)
+            {
+                result += BuildingNumber.GetHashCode();
+            }
+            if (this.NumberEntrances != 0)
+            {
+                result += NumberEntrances.GetHashCode();
+            }
+
+            return result;
         }
     }
 }

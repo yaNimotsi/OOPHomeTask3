@@ -1,11 +1,12 @@
 ﻿using System;
-using Lesson4._2.Interfaces;
 
 namespace Lesson4._2.CreatorClasses
 {
     internal class BuildingCreator : Creator
     {
-        public override IBuilding CreateBuild(double buildingHeight, int numberOfFloor, int numberApartments, int numberEntrances)
+
+        public BaseBuild CreateBuilding(double buildingHeight, int numberOfFloor, int numberApartments,
+            int numberEntrances)
         {
             if (buildingHeight < 1)
             {
@@ -24,7 +25,9 @@ namespace Lesson4._2.CreatorClasses
                 throw new ArgumentException("Количество подъездов в здании не может быть меньше 1!");
             }
 
-            return new Building(buildingHeight, numberOfFloor, numberApartments, numberEntrances);
+            var buildingNumber = Creator.GenerateBuildingNumber();
+            
+            return new Build(buildingNumber, buildingHeight, numberOfFloor, numberApartments, numberEntrances);
         }
     }
 }

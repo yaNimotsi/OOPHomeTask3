@@ -1,4 +1,6 @@
-﻿namespace Lesson4._2
+﻿using System;
+
+namespace Lesson4._2
 {
     public abstract class BaseBuild
     {
@@ -28,5 +30,14 @@
         public abstract double GetHeightFloor();
         public abstract int GetCountApartmentInEntrance();
         public abstract int GetCountApartmentInFloor();
+
+        public override string ToString()
+        {
+            return  new string($"Number building is {BuildingNumber} \r\n" +
+                                    $"Building height is {BuildingHeight} \r\n" +
+                                    $"Number of the floor is {NumberOfFloor} \r\n" +
+                                    $"Number of Appartaments is {NumberApartments} \r\n" +
+                                    $"Number of Entrances is {NumberEntrances}");
+        }
     }
 }

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Lesson4._3</RootNamespace>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Lesson4">
+      <HintPath>..\LibraryProject\Lesson4\Lesson4\bin\Release\netcoreapp3.1\Lesson4.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

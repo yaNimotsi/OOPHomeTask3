@@ -83,7 +83,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Conver RationalNumber to floatValue
+        /// Convert RationalNumber to floatValue
         /// </summary>
         /// <param name="rationalNumber"></param>
         public static implicit operator float (RationalNumber rationalNumber)
@@ -92,7 +92,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Conver value from float to RationalNumber
+        /// Convert value from float to RationalNumber
         /// </summary>
         /// <param name="val"> Float value to convert</param>
         public static explicit operator RationalNumber (float val)
@@ -116,5 +116,28 @@ namespace Task1
                 Denominator = newDenominator / GCD(newNumeration, newDenominator)
             };
         }
+
+        /// <summary>
+        /// Convert RationalNumber to int Value
+        /// </summary>
+        /// <param name="rationalNumber"> Rational number to convert</param>
+        public static implicit operator int(RationalNumber rationalNumber)
+        {
+            return Math.Abs(rationalNumber.Numeration / rationalNumber.Denominator);
+        }
+
+        /// <summary>
+        /// Convert value from int to RationalNumber
+        /// </summary>
+        /// <param name="val"> Int value to convert</param>
+        public static explicit operator RationalNumber(int val)
+        {
+            return new RationalNumber()
+            {
+                Numeration = (int)val,
+                Denominator = 1
+            };
+        }
+
     }
 }

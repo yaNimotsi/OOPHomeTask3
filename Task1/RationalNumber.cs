@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Runtime.CompilerServices;
 
 namespace Task1
 {
@@ -21,6 +20,11 @@ namespace Task1
 
         public int Denominator { get; set; }
 
+        /// <summary>
+        /// Override method Equals
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             if (obj == null) return false;
@@ -33,6 +37,10 @@ namespace Task1
             return Math.Abs(decimalRepresentation1 - decimalRepresentation2) < 0.001;
         }
 
+        /// <summary>
+        /// Override method to string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             double result = Numeration / Denominator;
@@ -157,18 +165,34 @@ namespace Task1
             };
         }
 
+        /// <summary>
+        /// Increment to rationalNumber
+        /// </summary>
+        /// <param name="rationalNumber"></param>
+        /// <returns></returns>
         public static RationalNumber operator ++(RationalNumber rationalNumber)
         {
             rationalNumber.Numeration += rationalNumber.Denominator;
             return rationalNumber;
         }
 
+        /// <summary>
+        /// Decrement to rational number
+        /// </summary>
+        /// <param name="rationalNumber"></param>
+        /// <returns></returns>
         public static RationalNumber operator --(RationalNumber rationalNumber)
         {
             rationalNumber.Numeration -= rationalNumber.Denominator;
             return rationalNumber;
         }
 
+        /// <summary>
+        /// the remainder of the division Rational number
+        /// </summary>
+        /// <param name="val1"></param>
+        /// <param name="val2"></param>
+        /// <returns></returns>
         public static int operator %(RationalNumber val1, RationalNumber val2)
         {
             var newVal1 = val1.Numeration / val1.Denominator;
@@ -207,24 +231,48 @@ namespace Task1
             };
         }
 
+        /// <summary>
+        /// comparison of rational numbers
+        /// </summary>
+        /// <param name="rationalNumber1"></param>
+        /// <param name="rationalNumber2"></param>
+        /// <returns></returns>
         public static bool operator >(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
             return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) > 
                    (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
         }
 
+        /// <summary>
+        /// comparison of rational numbers
+        /// </summary>
+        /// <param name="rationalNumber1"></param>
+        /// <param name="rationalNumber2"></param>
+        /// <returns></returns>
         public static bool operator <(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
             return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) <
                    (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
         }
 
+        /// <summary>
+        /// comparison of rational numbers
+        /// </summary>
+        /// <param name="rationalNumber1"></param>
+        /// <param name="rationalNumber2"></param>
+        /// <returns></returns>
         public static bool operator >=(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
             return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) >=
                    (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
         }
 
+        /// <summary>
+        /// comparison of rational numbers
+        /// </summary>
+        /// <param name="rationalNumber1"></param>
+        /// <param name="rationalNumber2"></param>
+        /// <returns></returns>
         public static bool operator <=(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
             return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) >=

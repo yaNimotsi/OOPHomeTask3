@@ -169,10 +169,12 @@ namespace Task1
             return rationalNumber;
         }
 
-        public static int operator %(RationalNumber numeration, float denominator)
+        public static int operator %(RationalNumber val1, RationalNumber val2)
         {
-            
-            return 0;
+            var newVal1 = val1.Numeration / val1.Denominator;
+            var newVal2 = val2.Numeration / val2.Denominator;
+
+            return newVal1 % newVal2;
         }
 
         /// <summary>

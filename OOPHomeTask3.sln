@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPHomeTask3.2", "OOPHomeTa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPHomeTask3.3", "OOPHomeTask3.3\OOPHomeTask3.3.csproj", "{1F15FB44-A7F7-4573-B470-B02357CC4D1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplecxNumber", "ComplecxNumber\ComplecxNumber.csproj", "{D97693B6-36E0-4395-BA8D-804DF63DFCC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexNumber", "ComplecxNumber\ComplexNumber.csproj", "{D97693B6-36E0-4395-BA8D-804DF63DFCC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

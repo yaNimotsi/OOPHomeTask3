@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ComplecxNumber
+namespace ComplexNumber
 {
     class ComplexNumber
     {
         private double _realPart;
         private double _imaginaryPart;
-        private bool _complex;
+        private bool _isComplex;
+
+        private const double AccuracyOfComparison = 0.01;
 
         public double RealPart
         {
@@ -21,9 +23,9 @@ namespace ComplecxNumber
             set => _imaginaryPart = value;
         }
 
-        public bool isComplex
+        public bool IsComplex
         {
-            get => _complex;
+            get => _isComplex;
         }
 
         private ComplexNumber()
@@ -35,7 +37,7 @@ namespace ComplecxNumber
         {
             _realPart = realNumber;
             _imaginaryPart = imaginaryPart;
-            _complex = true;
+            _isComplex = true;
         }
 
         public static ComplexNumber operator +(ComplexNumber number1, ComplexNumber number2)
@@ -64,7 +66,7 @@ namespace ComplecxNumber
                 {
                     RealPart = number1.RealPart * number2.RealPart + (number1.ImaginaryPart * number2.ImaginaryPart) * (-1),
                     ImaginaryPart = number1.ImaginaryPart * number2.RealPart + number1.RealPart * number2.ImaginaryPart,
-                    _complex = false
+                    _isComplex = false
                 };
             }
 
@@ -72,7 +74,7 @@ namespace ComplecxNumber
             {
                 RealPart = number1.RealPart * number2.RealPart + (number1.ImaginaryPart * number2.ImaginaryPart) * (-1),
                 ImaginaryPart = number1.ImaginaryPart * number2.RealPart + number1.RealPart * number2.ImaginaryPart,
-                _complex = true
+                _isComplex = true
             };
 
         }
@@ -91,6 +93,37 @@ namespace ComplecxNumber
             }
 
             return result;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null) return false;
+
+            var complexNumber = (ComplexNumber)obj;
+
+            if (Math.Abs(_realPart - complexNumber._realPart) < AccuracyOfComparison
+                && Math.Abs(_imaginaryPart - ImaginaryPart) < AccuracyOfComparison)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            var result = 0;
+            if (_realPart != 0)
+            {
+                result += _realPart.GetHashCode();
+            }
+
+            if (ImaginaryPart != 0)
+            {
+                result += ImaginaryPart.GetHashCode();
+            }
+
+            return result += _isComplex.GetHashCode();
         }
     }
 }

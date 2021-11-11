@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace ComplexNumber
 {
-    class ComplexNumber
+    internal class ComplexNumber
     {
         private double _realPart;
         private double _imaginaryPart;
@@ -85,11 +85,19 @@ namespace ComplexNumber
 
             if (_imaginaryPart > 0)
             {
-                result += $"+{_imaginaryPart}i";
+                if (_isComplex == true)
+                {
+                    result += $"+{_imaginaryPart}i";
+                }
+                result += $"+{_imaginaryPart}";
             }
             else
             {
-                result += $"{_imaginaryPart}i";
+                if (_isComplex == true)
+                {
+                    result += $"{_imaginaryPart}i";
+                }
+                result += $"{_imaginaryPart}";
             }
 
             return result;

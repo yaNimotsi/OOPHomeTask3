@@ -10,7 +10,7 @@ namespace Lesson6._2.Heroes
             NameHero = "Остроухий";
             AmountOfHealth = 3;
             Heal = new Bandage(15);
-            Weapon = new Sword();
+            Weapon = new MultiGun();
         }
 
         public override void Heat()

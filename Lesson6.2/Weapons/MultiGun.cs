@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson6._2.Weapons
 {
-    class MultiGun : Weapon
+    class MultiGun : BaseWeapon
     {
         public override void Heat()
         {

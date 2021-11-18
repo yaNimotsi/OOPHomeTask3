@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Lesson6._2.Heal;
+﻿using Lesson6._2.Heal;
 using Lesson6._2.Weapons;
 
 namespace Lesson6._2.Heroes
 {
-    class Elf: BaseHero
+    class Ork :BaseHero
     {
-        public Elf():base()
+        public Ork() : base()
         {
             NameHero = "Остроухий";
             AmountOfHealth = 3;
-            Heal = new FirstAidKit(30);
+            Heal = new Bandage(15);
             Weapon = new Sword();
         }
 

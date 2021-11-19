@@ -6,7 +6,12 @@ namespace Lesson6._3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var circle = new Circle(12.3);
+
+            var rectangle = new Rectangle(3, 9.55);
+
+
+            Console.ReadLine();
         }
     }
 }

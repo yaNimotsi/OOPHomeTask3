@@ -10,8 +10,8 @@ namespace TestToLesson5._1
     {
         [Theory]
         [InlineData(3, 8, 6, 16, true)]
-        [InlineData(2, 8, 6, 16, false)]
-        [InlineData(3, 8, 5, 16, false)]
+        [InlineData(1, 99, 1, 1, false)]
+        [InlineData(3, 8, 4, 16, true)]
         public void Greater_test(int numeration1, int denominator1, int numeration2, int denominator2, bool expected)
         {
             var rationalNumber1 = new RationalNumber(numeration1, denominator1);

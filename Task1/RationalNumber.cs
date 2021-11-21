@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Task1
 {
-    internal class RationalNumber
+    public class RationalNumber
     {
         private RationalNumber()
         {
@@ -34,7 +34,7 @@ namespace Task1
             double decimalRepresentation1 = Numeration / Denominator;
             double decimalRepresentation2 = number.Numeration / number.Denominator;
 
-            return Math.Abs(decimalRepresentation1 - decimalRepresentation2) < 0.001;
+            return decimalRepresentation1.CompareTo(decimalRepresentation2) == 0;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Task1
         public override string ToString()
         {
             double result = Numeration / Denominator;
-            return new string(Convert.ToString(result));
+            return new string(result.ToString());
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Task1
         /// <param name="rationalNumber"></param>
         public static implicit operator float(RationalNumber rationalNumber)
         {
-            return Math.Abs(rationalNumber.Numeration / rationalNumber.Denominator);
+            return rationalNumber.Numeration / rationalNumber.Denominator;
         }
 
         /// <summary>
@@ -239,8 +239,12 @@ namespace Task1
         /// <returns></returns>
         public static bool operator >(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) > 
-                   (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
+            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+
+            if (val1.CompareTo(val2) == 1) return true;
+
+            return false;
         }
 
         /// <summary>
@@ -251,8 +255,12 @@ namespace Task1
         /// <returns></returns>
         public static bool operator <(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) <
-                   (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
+            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+
+            if (val1.CompareTo(val2) == -1) return true;
+
+            return false;
         }
 
         /// <summary>
@@ -263,8 +271,12 @@ namespace Task1
         /// <returns></returns>
         public static bool operator >=(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) >=
-                   (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
+            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+
+            if (val1.CompareTo(val2) == 0 || val1.CompareTo(val2) == 1) return true;
+
+            return false;
         }
 
         /// <summary>
@@ -275,8 +287,12 @@ namespace Task1
         /// <returns></returns>
         public static bool operator <=(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            return (float)Math.Abs(rationalNumber1.Numeration / rationalNumber1.Denominator) >=
-                   (float)Math.Abs(rationalNumber2.Numeration / rationalNumber2.Denominator);
+            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+
+            if (val1.CompareTo(val2) == -1 || val1.CompareTo(val2) == 0) return true;
+
+            return false;
         }
     }
 }

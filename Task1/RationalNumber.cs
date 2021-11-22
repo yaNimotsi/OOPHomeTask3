@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace Task1
 {
-    public class RationalNumber
+    public class RationalNumber : IComparable
     {
         private RationalNumber()
         {
@@ -31,8 +31,8 @@ namespace Task1
 
             var number = (RationalNumber)obj;
 
-            double decimalRepresentation1 = Numeration / Denominator;
-            double decimalRepresentation2 = number.Numeration / number.Denominator;
+            double decimalRepresentation1 = (float)Numeration / Denominator;
+            double decimalRepresentation2 = (float)number.Numeration / number.Denominator;
 
             return decimalRepresentation1.CompareTo(decimalRepresentation2) == 0;
         }
@@ -43,8 +43,8 @@ namespace Task1
         /// <returns></returns>
         public override string ToString()
         {
-            double result = Numeration / Denominator;
-            return new string(result.ToString());
+            double result = (float)Numeration / Denominator;
+            return new string(result.ToString(CultureInfo.CurrentCulture));
         }
 
         /// <summary>
@@ -53,6 +53,7 @@ namespace Task1
         /// <param name="newNumeration"> Преобразованный числитель</param>
         /// <param name="newDenominator"> Преобразлванный знаменатель</param>
         /// <returns>НОД двух чисел</returns>
+        // ReSharper disable once InconsistentNaming
         private static int GCD(int newNumeration, int newDenominator)
         {
             if (newNumeration == newDenominator) return newNumeration;
@@ -79,12 +80,34 @@ namespace Task1
         }
 
         /// <summary>
+        /// Сравнение рациональных чисел
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+
+            RationalNumber rationalNumber = obj as RationalNumber;
+
+            if (rationalNumber != null)
+            {
+                return (this.Numeration / this.Denominator).CompareTo
+                    (rationalNumber.Numeration / rationalNumber.Denominator);
+            }
+            else
+            {
+                throw new ArgumentException("Oject is not a Rational Number");
+            }
+        }
+
+        /// <summary>
         ///     Convert RationalNumber to floatValue
         /// </summary>
         /// <param name="rationalNumber"></param>
         public static implicit operator float(RationalNumber rationalNumber)
         {
-            return rationalNumber.Numeration / rationalNumber.Denominator;
+            return (float)rationalNumber.Numeration / rationalNumber.Denominator;
         }
 
         /// <summary>
@@ -112,7 +135,7 @@ namespace Task1
         }
 
         /// <summary>
-        ///     Convert RationalNumber to int Value
+        /// Convert RationalNumber to int Value
         /// </summary>
         /// <param name="rationalNumber"> Rational number to convert</param>
         public static implicit operator int(RationalNumber rationalNumber)
@@ -239,8 +262,8 @@ namespace Task1
         /// <returns></returns>
         public static bool operator >(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
-            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+            var val1 = (float)rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = (float)rationalNumber2.Numeration / rationalNumber2.Denominator;
 
             if (val1.CompareTo(val2) == 1) return true;
 
@@ -255,8 +278,8 @@ namespace Task1
         /// <returns></returns>
         public static bool operator <(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
-            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+            var val1 = (float)rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = (float)rationalNumber2.Numeration / rationalNumber2.Denominator;
 
             if (val1.CompareTo(val2) == -1) return true;
 
@@ -271,8 +294,8 @@ namespace Task1
         /// <returns></returns>
         public static bool operator >=(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
-            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+            var val1 = (float)rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = (float)rationalNumber2.Numeration / rationalNumber2.Denominator;
 
             if (val1.CompareTo(val2) == 0 || val1.CompareTo(val2) == 1) return true;
 
@@ -287,8 +310,8 @@ namespace Task1
         /// <returns></returns>
         public static bool operator <=(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
-            var val1 = rationalNumber1.Numeration / rationalNumber1.Denominator;
-            var val2 = rationalNumber2.Numeration / rationalNumber2.Denominator;
+            var val1 = (float)rationalNumber1.Numeration / rationalNumber1.Denominator;
+            var val2 = (float)rationalNumber2.Numeration / rationalNumber2.Denominator;
 
             if (val1.CompareTo(val2) == -1 || val1.CompareTo(val2) == 0) return true;
 

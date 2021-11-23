@@ -164,6 +164,14 @@ namespace Task1
         /// <returns> Sum of two rational number</returns>
         public static RationalNumber operator +(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
+            if (rationalNumber1.Denominator == rationalNumber2.Denominator)
+            {
+                return new RationalNumber
+                {
+                    Numeration = rationalNumber1.Numeration + rationalNumber2.Numeration,
+                    Denominator = rationalNumber1.Denominator
+                };
+            }
             return new RationalNumber
             {
                 Numeration = rationalNumber1.Numeration * rationalNumber2.Denominator +
@@ -180,6 +188,14 @@ namespace Task1
         /// <returns> difference of two numbers</returns>
         public static RationalNumber operator -(RationalNumber rationalNumber1, RationalNumber rationalNumber2)
         {
+            if (rationalNumber1.Denominator == rationalNumber2.Denominator)
+            {
+                return new RationalNumber
+                {
+                    Numeration = rationalNumber1.Numeration - rationalNumber2.Numeration,
+                    Denominator = rationalNumber1.Denominator
+                };
+            }
             return new RationalNumber
             {
                 Numeration = rationalNumber1.Numeration * rationalNumber2.Denominator -
@@ -218,10 +234,10 @@ namespace Task1
         /// <returns></returns>
         public static int operator %(RationalNumber val1, RationalNumber val2)
         {
-            var newVal1 = val1.Numeration / val1.Denominator;
-            var newVal2 = val2.Numeration / val2.Denominator;
+            var newVal1 = (float) val1.Numeration / val1.Denominator;
+            var newVal2 = (float)val2.Numeration / val2.Denominator;
 
-            return newVal1 % newVal2;
+            return (int)(newVal1 % newVal2);
         }
 
         /// <summary>

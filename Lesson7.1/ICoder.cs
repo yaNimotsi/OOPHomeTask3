@@ -1,8 +1,8 @@
 ﻿namespace Lesson7._1
 {
-    interface ICoder
+    interface  ICoder
     {
-        public string Encode();
-        public string Decode();
+        string Encoder(string val);
+        string Decoder(string val);
     }
 }

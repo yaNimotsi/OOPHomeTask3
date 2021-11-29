@@ -8,6 +8,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPHomeTask3.2", "OOPHomeTa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPHomeTask3.3", "OOPHomeTask3.3\OOPHomeTask3.3.csproj", "{1F15FB44-A7F7-4573-B470-B02357CC4D1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6.3", "Lesson6.3\Lesson6.3.csproj", "{085AB736-B31F-4047-979E-41A627DC4D19}"
+=======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6.2", "Lesson6.2\Lesson6.2.csproj", "{DAD79BE6-4723-48DE-BC01-1AA4E9A70F02}"
 EndProject
 Global
@@ -28,10 +30,15 @@ Global
 		{1F15FB44-A7F7-4573-B470-B02357CC4D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F15FB44-A7F7-4573-B470-B02357CC4D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F15FB44-A7F7-4573-B470-B02357CC4D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{085AB736-B31F-4047-979E-41A627DC4D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{085AB736-B31F-4047-979E-41A627DC4D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{085AB736-B31F-4047-979E-41A627DC4D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{085AB736-B31F-4047-979E-41A627DC4D19}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAD79BE6-4723-48DE-BC01-1AA4E9A70F02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAD79BE6-4723-48DE-BC01-1AA4E9A70F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAD79BE6-4723-48DE-BC01-1AA4E9A70F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAD79BE6-4723-48DE-BC01-1AA4E9A70F02}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
